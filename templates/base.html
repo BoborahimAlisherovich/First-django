@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>First</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'css/reset.css' %}" type="text/css" media="all">
+<link rel="stylesheet" href="{% static 'css/layout.css' %}" type="text/css" media="all">
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all">
+<script type="text/javascript" src="{% static 'js/jquery-1.4.2.js' %}" ></script>
+<script type="text/javascript" src="{% static 'js/cufon-yui.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/cufon-replace.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/Copse_400.font.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.nivo.slider.pack.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/imagepreloader.js' %}"></script>
+<script type="text/javascript">
+
+preloadImages(['{% static "images/menu1_active.gif" %}', '{% static "images/menu2_active.gif" %}', '{% static "images/menu3_active.gif" %}', '{% static "images/menu4_active.gif" %}', '{% static "images/marker_right_active.jpg" %}', '{% static "images/marker_left_active.jpg" %}', '{% static "images/menu5_active.gif" %}']);
+</script>
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/ie6_script_other.js"></script>
+<script type="text/javascript" src="js/html5.js"></script>
+<![endif]-->
+</head>
+<body id="page1">
+<!-- START PAGE SOURCE -->
+<div class="body1">
+  <div class="body2">
+    <div class="main">
+      <header>
+        <div class="wrapper">
+          <h1><a href="index.html" id="logo">First</a></h1>
+          <div class="right">
+            <nav>
+              <ul id="top_nav">
+                <li><a href="#">User Area</a></li>
+                <li><a href="#">Sitemap</a></li>
+              </ul>
+              <form id="search" method="post" action="#">
+                <div>
+                  <input type="submit" class="submit" value="">
+                  <input type="text" class="input">
+                </div>
+              </form>
+            </nav>
+          </div>
+        </div>
+        <nav id="menu">
+          <ul>
+            <li class="nav1" id="active"><a href="{% url 'home-page' %}">Home</a></li>
+            <li class="nav2"><a href="{% url 'news-page' %}">News</a></li>
+            <li class="nav3"><a href="{% url 'services-page' %}">Services</a></li>
+            <li class="nav4"><a href="{% url 'products-page' %}">Products</a></li>
+            <li class="nav5"><a href="{% url 'contact-page' %}">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      {% block content %}
+      {% endblock content %}
+    
+
+    </footer>
+</div>
+</div>
+</div>
+<script type="text/javascript"> Cufon.now(); </script>
+<script type="text/javascript">
+$(window).load(function() {
+$('#slider').nivoSlider({
+    effect:'sliceDown', //Specify sets like: 'fold,fade,sliceDown, sliceDownLeft, sliceUp, sliceUpLeft, sliceUpDown, sliceUpDownLeft'    
+    slices:20,
+    animSpeed:300,
+    pauseTime:9999999999,
+    startSlide:0, //Set starting Slide (0 index)
+    directionNav:true, //Next & Prev
+    directionNavHide:false, //Only show on hover
+    controlNav:false, //1,2,3...
+    controlNavThumbs:false, //Use thumbnails for Control Nav
+    controlNavThumbsFromRel:false, //Use image rel for thumbs
+    controlNavThumbsSearch: '.jpg', //Replace this with...
+    controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+    keyboardNav:true, //Use left & right arrows
+    pauseOnHover:true, //Stop animation while hovering
+    manualAdvance:false, //Force manual transitions
+    captionOpacity:1, //Universal caption opacity
+    beforeChange: function(){},
+    afterChange: function(){},
+    slideshowEnd: function(){} //Triggers after all slides have been shown
+});
+});
+</script>
+<!-- END PAGE SOURCE -->
+</body>
+</html>
